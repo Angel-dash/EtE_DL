@@ -23,6 +23,7 @@ list_of_files=[
     "requirements.txt",
     "setup.py",
     "research/trails.ipynb",
+    "templates/index.html"
 ]
 
 for filepath in list_of_files:
@@ -30,7 +31,7 @@ for filepath in list_of_files:
     filedir,filename =os.path.split(filepath)
 
     if filedir !="":
-        os.makedirs(filedir,exist_ok=True)
+        os.makedirs(filedir,exist_ok=True)#creates the directory if it doesn't exist
         logging.info(f"Creating a directory {filedir}for the file :{filename}")
     
     if (not os.path.exists(filepath)) or (os.path.getsize(filepath)==0):
