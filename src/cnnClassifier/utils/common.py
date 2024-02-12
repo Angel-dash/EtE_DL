@@ -11,11 +11,11 @@ from typing import Any
 import base64
 
 
-
+#hadling error types such as sum of string and int instead of throwing error
 @ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
     """reads yaml file and returns
-
+    ->ConfigBox return type shoule be configBox
     Args:
         path_to_yaml (str): path like input
 
@@ -25,12 +25,15 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
 
     Returns:
         ConfigBox: ConfigBox type
+        instead of accessing the dictory d like d['key'] we can use 
+        d.key with the healp of configBox 
+
     """
     try:
         with open(path_to_yaml) as yaml_file:
             content = yaml.safe_load(yaml_file)
             logger.info(f"yaml file: {path_to_yaml} loaded successfully")
-            return ConfigBox(content)
+            return ConfigBox(content)#return a config type dictonary 
     except BoxValueError:
         raise ValueError("yaml file is empty")
     except Exception as e:
