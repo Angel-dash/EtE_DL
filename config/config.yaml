@@ -1,0 +1,7 @@
+artifacts_roots: artifacts
+
+data_ingestion:
+  root_dir: artifacts_roots #so it will create a root direcotry name artificats and it will have a data ingestion folder
+  source_URL: https://github.com/entbappy/Branching-tutorial/raw/master/Chicken-fecal-images.zip
+  local_data_file: artifacts/data_ingestion/data.zip #fromt the link above it will downlaod as this zip files
+  unzip_dir: artifacts/data_ingestion #since we have created this folder above this will contain the data
